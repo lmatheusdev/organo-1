@@ -1,33 +1,33 @@
-
 import './rodape.css'
 
 const Rodape = () => {
-    return (<footer className="footer">
+    return (
+    <footer className="footer">
        <section>
        <ul>
             <li>
-                <a href="facebook.com" target="_blank">
-                    <img src="/imagens/facebook.png" alt="" />
+                <a href="https://facebook.com" target="_blank" rel='noopener noreferrer'>
+                    <img src="/imagens/facebook.png" alt="Icone do facebook" />
                 </a>
             </li>
             <li>
-                <a href="twitter.com" target="_blank">
-                    <img src="/imagens/twitter.png" alt="" />
+                <a href="https://twitter.com" target="_blank" rel='noopener noreferrer'>
+                    <img src="/imagens/twitter.png" alt="Icone do x" />
                 </a>
             </li>
             <li>
-                <a href="instagram.com" target="_blank">
-                    <img src="/imagens/instagram.png" alt="" />
+                <a href="https://instagram.com" target="_blank" rel='noopener noreferrer'>
+                    <img src="/imagens/instagram.png" alt="Icone do instagram" />
                 </a>
             </li>
         </ul>
        </section>
-       <section>
-       <img src="/imagens/logo.png" alt="" />
+       <section className='logo'>
+        <img src='/imagens/familia-marques-logo.png'></img>
        </section>
        <section>
         <p>
-            Desenvolvido por Alura.
+            Desenvolvido por Leandro Souza.
         </p>
        </section>
     </footer>)

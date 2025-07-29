@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import Botao from '../Botao'
-import CampoTexto from '../CampoTexto'
+import Campo from '../Campo'
 import ListaSuspensa from '../ListaSuspensa'
 import './formulario.css'
 
-const Formulario = ({aoCadastrar, times}) => {
+const Formulario = ({aoCadastrar, times, novoTime}) => {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [nomeTime, setNomeTime] = useState('')
+    const [corTime, setCorTime] = useState('')
 
     const aoSubmeter = (evento) => {
         evento.preventDefault()
@@ -25,20 +27,20 @@ const Formulario = ({aoCadastrar, times}) => {
     return (
         <section className="formulario-container">
             <form className="formulario" onSubmit={aoSubmeter}>
-                <h2>Preencha os dados para criar o card do colaborador.</h2>
-                <CampoTexto
+                <h2>Preencha os dados para adicionar um novo membro da família.</h2>
+                <Campo
                     obrigatorio={true}
                     label='Nome'
                     placeholder='Digite seu nome '
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}/>
-                <CampoTexto
+                <Campo
                     obrigatorio={true}
-                    label='Cargo' 
-                    placeholder='Digite seu cargo '
+                    label='Sobre' 
+                    placeholder='Digite algo sobre a pessoa '
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}/>
-                <CampoTexto 
+                <Campo
                     label='Imagem' 
                     placeholder='Informe o endereço da imagem '
                     aoAlterado={valor => setImagem(valor)}/>
@@ -49,6 +51,26 @@ const Formulario = ({aoCadastrar, times}) => {
                     valor={time}
                     aoAlterado={valor => setTime(valor)}/>
                 <Botao texto='Criar card' />
+            </form>
+            <form className="formulario" onSubmit={(evento) => {
+                evento.preventDefault()
+                novoTime({nome: nomeTime, cor: corTime})
+            }}>
+                <h2>Preencha os dados para criar uma nova parte da família.</h2>
+                <Campo
+                    obrigatorio={true}
+                    label='Time'
+                    placeholder='Digite o nome do novo time '
+                    valor={nomeTime}
+                    aoAlterado={valor => setNomeTime(valor)}/>
+                <Campo
+                    type='color'
+                    obrigatorio={true}
+                    label='Cor' 
+                    placeholder='Digite a cor (hexadecimal) '
+                    valor={corTime}
+                    aoAlterado={valor => setCorTime(valor)}/>
+                <Botao texto='Criar novo Time' />
             </form>
         </section>
     )
